@@ -55,7 +55,6 @@ for (let [name,details] of Object.entries(users)){
     for (let eachLang of diffLanguages ) {
         if (details.desgination.includes(eachLang)){
             usersGroupsOnLanguage[eachLang] = {}
-
             for (let [key,val] of Object.entries(users)){
                 if (val.desgination.includes(eachLang)){
                     usersGroupsOnLanguage[eachLang][key]= val.desgination
