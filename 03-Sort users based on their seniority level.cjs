@@ -23,7 +23,7 @@ const users = {
     "Rob": {
         age: 34,
         desgination: "Senior Javascript Developer",
-        interests: ["Walking his dog, Cooking"],
+        interest: ["Walking his dog, Cooking"],
         qualification: "Masters",
         nationality: "USA"
     },
@@ -36,12 +36,5 @@ const users = {
     }
 }
 
-let usersWithVideoGame = []
-for (let [key,val] of Object.entries(users)){
-    if (val.interests.includes('Video Games') || (val.interests[0]).endsWith('Video Games')){
-        usersWithVideoGame.push({name:key,interests:val.interests})
-    }
-}
-console.log(usersWithVideoGame)
-
-
+let sortedByAgeUsers = Object.keys(users)
+console.log(sortedByAgeUsers)
