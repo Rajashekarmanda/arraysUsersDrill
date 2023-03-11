@@ -36,7 +36,7 @@ const users = {
     }
 }
 
-
+module.exports = users
 /*
 
 Q1 Find all users who are interested in playing video games.

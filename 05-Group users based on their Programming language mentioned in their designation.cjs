@@ -35,11 +35,8 @@ const users = {
         nationality: "Germany"
     }
 }
-
 let usersGroupsOnLanguage = {}
-
 let diffLanguages = []
-
 for (let [name, details] of Object.entries(users)){
     // console.log(details.desgination.split(' '))
     for (let each of details.desgination.split(' ')){
