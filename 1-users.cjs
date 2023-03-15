@@ -23,7 +23,7 @@ const users = {
     "Rob": {
         age: 34,
         desgination: "Senior Javascript Developer",
-        interest: ["Walking his dog, Cooking"],
+        interests: ["Walking his dog, Cooking"],
         qualification: "Masters",
         nationality: "USA"
     },
