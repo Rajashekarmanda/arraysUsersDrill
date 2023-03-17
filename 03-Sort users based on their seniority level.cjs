@@ -13,7 +13,7 @@ function sortingByKeyWordsMultiple(firstKey,secondKey){
         return 0
     }
 }
-let sortingByAgeAndRole = []
+let sortingByAgeAndRole = [], finalSortedUsers = []
 Object.entries(users).map((eachCandidate) =>{
     if (eachCandidate[1].desgination.includes('Senior')){
         eachCandidate[1].seniorityLevel = 100
@@ -28,7 +28,6 @@ Object.entries(users).map((eachCandidate) =>{
     sortingByAgeAndRole.push(eachCandidate[1])
 })
 sortingByAgeAndRole.sort(sortingByKeyWordsMultiple)
-let finalSortedUsers = []
 sortingByAgeAndRole.map((eachPerson) =>{
     delete eachPerson.seniorityLevel
     finalSortedUsers.push({[eachPerson.name]:eachPerson})
