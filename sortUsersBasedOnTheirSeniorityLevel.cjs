@@ -1,35 +1,33 @@
 const users = require('./1-users.cjs')
 
-function sortingByKeyWordsMultiple(firstKey,secondKey){
-    if (firstKey.seniorityLevel < secondKey.seniorityLevel){
-        return 1
-    }else if (firstKey.seniorityLevel > secondKey.seniorityLevel){
-        return -1
-    }else if (firstKey.age < secondKey.age){
-        return 1
-    }else if (firstKey.age > secondKey.age){
-        return -1
-    }else {
+let sortedUserArray = Object.entries(users).sort((a, b) => {
+    if(
+      (a[1].desgination.includes("Senior") && b[1].desgination.includes("Senior")) || 
+      (a[1].desgination.includes("Developer") && b[1].desgination.includes("Developer")) ||
+      (a[1].desgination.includes("Intern") && b[1].desgination.includes("Intern"))
+    ) {
+      if(a[1].age === b[1].age) {
         return 0
+      }
+      else if(a[1].age > b[1].age) {
+        return -1;
+      }
+      else {
+        return 1;
+      }
     }
-}
-let sortingByAgeAndRole = [], finalSortedUsers = []
-Object.entries(users).map((eachCandidate) =>{
-    if (eachCandidate[1].desgination.includes('Senior')){
-        eachCandidate[1].seniorityLevel = 100
-        eachCandidate[1].name = eachCandidate[0]
-    }else if (eachCandidate[1].desgination.includes('Developer')){
-        eachCandidate[1].seniorityLevel = 75
-        eachCandidate[1].name = eachCandidate[0]
-    }else{
-        eachCandidate[1].seniorityLevel = 50
-        eachCandidate[1].name = eachCandidate[0]
+    else if(a[1].desgination.includes("Senior")) {
+        return -1
+    } 
+    else if(b[1].desgination.includes("Senior")) {
+      return 1;
     }
-    sortingByAgeAndRole.push(eachCandidate[1])
-})
-sortingByAgeAndRole.sort(sortingByKeyWordsMultiple)
-sortingByAgeAndRole.map((eachPerson) =>{
-    delete eachPerson.seniorityLevel
-    finalSortedUsers.push({[eachPerson.name]:eachPerson})
-})
-console.log(finalSortedUsers)
+    else if(a[1].desgination.includes("Developer")) {
+      return -1;
+    }
+    else if(b[1].desgination.includes("Developer")) {
+      return 1
+    }
+    return 0
+  });
+  console.log(Object.fromEntries(sortedUserArray));
